@@ -19,6 +19,7 @@
 		524A881F2468B7C5006A3EDA /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524A881E2468B7C5006A3EDA /* QuizView.swift */; };
 		528267522468D7B20059F1A8 /* QuizPictureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528267512468D7B20059F1A8 /* QuizPictureService.swift */; };
 		528267562468DE190059F1A8 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528267552468DE190059F1A8 /* QuestionView.swift */; };
+		52826758246991CF0059F1A8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52826757246991CF0059F1A8 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		524A881E2468B7C5006A3EDA /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		528267512468D7B20059F1A8 /* QuizPictureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPictureService.swift; sourceTree = "<group>"; };
 		528267552468DE190059F1A8 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		52826757246991CF0059F1A8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				524A88192468A80F006A3EDA /* Quiz.swift */,
 				524A881B2468A9D5006A3EDA /* Question.swift */,
+				52826757246991CF0059F1A8 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				524A88132468A00B006A3EDA /* InitialViewController.swift in Sources */,
+				52826758246991CF0059F1A8 /* Category.swift in Sources */,
 				528267522468D7B20059F1A8 /* QuizPictureService.swift in Sources */,
 				524A881A2468A80F006A3EDA /* Quiz.swift in Sources */,
 				521F8AAB24689DB300FF0CBA /* AppDelegate.swift in Sources */,

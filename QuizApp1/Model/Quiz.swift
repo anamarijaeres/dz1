@@ -14,6 +14,7 @@ class Quiz{
     let image:String?
     let category:String
     var allquestions: [Question]=[]
+    var c: Category?
  
     init?(json:Any){
         print("parsing")
@@ -30,7 +31,14 @@ class Quiz{
                 self.title=title
                 self.image=image
                 self.category=category
-    
+                switch category{
+                    case "SPORTS":
+                        self.c=Category.SPORTS
+                    case "SCIENCE":
+                        self.c=Category.SCIENCE
+                    default:
+                        return
+                }
                 print("\(self.title)  "+"\(self.image)"+"\(self.category)")
         
         }else{

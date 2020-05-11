@@ -31,6 +31,7 @@ class QuizService {
                                
                         }
                     }catch{
+                        
                         completion(nil)
                     }
                 }else{
