@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+
+protocol QuestionViewDelegate: class {
+    func nextQuestion(_ correct: Bool)
+}
+
 class QuestionView: UIView {
 
     /*
@@ -17,13 +23,14 @@ class QuestionView: UIView {
         // Drawing code
     }
     */
-    
+    var delegate: QuestionViewDelegate?
     var label: UILabel?
     var answer1: UIButton?
     var answer2: UIButton?
     var answer3: UIButton?
     var answer4: UIButton?
     var question1: Question?
+    var dispatchGroup=DispatchGroup()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,11 +41,16 @@ class QuestionView: UIView {
         
         question1 = question
         
-        label = UILabel(frame: CGRect(origin: CGPoint(x: 10, y: 10), size: CGSize(width: 200, height: 10)))
-        label?.textAlignment = NSTextAlignment.center
+        
+        label = UILabel(frame: CGRect(origin: CGPoint(x: 10, y: 10), size: CGSize(width: 100, height: 10)))
+        label?.sizeThatFits(CGSize(width: 300, height: 700))
+      
+        label?.text=""
         label?.text = question.question
-        label?.lineBreakMode = .byWordWrapping
+        label?.lineBreakMode = .byCharWrapping
+        //label?.lineBreakMode = .byWordWrapping
         label?.sizeToFit()
+        
         
         if let label = label {
             self.addSubview(label)
@@ -93,22 +105,41 @@ class QuestionView: UIView {
         }else{
             answer1?.backgroundColor = .red
         }
+        delegate?.nextQuestion(question1?.correctAnswer==0)
     }
     
     @objc func answer2Action(sender: UIButton!){
-        if question1?.correctAnswer == 1 {
-            answer2?.backgroundColor = .green
-        }else{
-            answer2?.backgroundColor = .red
-        }
-    }
     
+        dispatchGroup.enter()
+        DispatchQueue.main.async {
+    
+            if self.question1?.correctAnswer == 1 {
+                self.answer2?.backgroundColor = .green
+                self.dispatchGroup.leave()
+            }else{
+                self.answer2?.backgroundColor = .red
+                self.dispatchGroup.leave()
+            }
+            
+        }
+        dispatchGroup.notify(queue: .main){
+            self.answered(self.question1?.correctAnswer == 1 )
+        }
+        
+        
+    }
+    func answered(_ correct:Bool){
+       
+        delegate?.nextQuestion(correct)
+    }
     @objc func answer3Action(sender: UIButton!){
         if question1?.correctAnswer == 2 {
             answer3?.backgroundColor = .green
         }else{
             answer3?.backgroundColor = .red
         }
+        
+        delegate?.nextQuestion(question1?.correctAnswer==2)
     }
     
     @objc func answer4Action(sender: UIButton!){
@@ -117,6 +148,7 @@ class QuestionView: UIView {
         }else{
             answer4?.backgroundColor = .red
         }
+        delegate?.nextQuestion(question1?.correctAnswer==3)
     }
 
     

@@ -12,8 +12,8 @@ class Question{
     var answers:[String]?=[]
     let correctAnswer: Int?
     let question: String?
-    
-    
+
+
     init(json:Any){
         if let questions=json as? [String:Any],
             let question=questions["question"] as? String,
@@ -26,10 +26,10 @@ class Question{
             self.answers=nil
             self.correctAnswer=nil
             self.question=nil
-            
+
         }
     }
-        
+
     init(correctAnswer: String, answers: [String], question: String){
         self.correctAnswer = Int(correctAnswer) ?? -1
         self.question=question

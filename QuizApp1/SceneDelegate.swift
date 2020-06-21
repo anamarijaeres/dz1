@@ -19,21 +19,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene=(scene as? UIWindowScene) else { return }
         let window=UIWindow(windowScene: windowScene)
-        window.rootViewController=InitialViewController()
+        let defaults=UserDefaults.standard
+        guard let data=defaults.string(forKey: "token") else{
+            
+         let vc = LoginViewController()
+                  let navigationController = UINavigationController(rootViewController: vc)
+                  window.rootViewController = navigationController
+                          
+                          self.window=window
+                          window.makeKeyAndVisible()
+                          return
+               }
+         print(data)
+        let vc = LoginViewController()
+        let navigationController = UINavigationController(rootViewController: vc)
+        window.rootViewController=navigationController
         self.window=window
         window.makeKeyAndVisible()
     }
-
+   
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+        
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.removeObject(forKey: "token")
+       
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

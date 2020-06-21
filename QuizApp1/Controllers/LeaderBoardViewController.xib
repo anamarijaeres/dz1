@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeaderBoardViewController" customModule="QuizApp1" customModuleProvider="target">
+            <connections>
+                <outlet property="leaderTableView" destination="BnZ-1m-s9x" id="cCb-7N-Fai"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BnZ-1m-s9x">
+                    <rect key="frame" x="0.0" y="62" width="414" height="800"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier2" rowHeight="138" translatesAutoresizingMaskIntoConstraints="NO" id="csy-de-RIf" customClass="LeaderTableViewCell" customModule="QuizApp1" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="109" width="414" height="138"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="csy-de-RIf" id="YNV-T0-Wuu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tableViewCellContentView>
+                    <accessibility key="accessibilityConfiguration" identifier="cellReuseIdentifier2"/>
+                </tableViewCell>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BnZ-1m-s9x" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Bbj-dn-FHF"/>
+                <constraint firstItem="BnZ-1m-s9x" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="C8B-hf-Tuk"/>
+                <constraint firstItem="BnZ-1m-s9x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Vo5-YZ-Dqv"/>
+                <constraint firstItem="BnZ-1m-s9x" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="18" id="i4b-yv-Ybp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="127.53623188405798" y="127.90178571428571"/>
+        </view>
+    </objects>
+</document>

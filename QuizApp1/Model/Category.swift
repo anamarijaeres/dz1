@@ -21,4 +21,13 @@ enum Category{
             return .cyan
         }
     }
+    var name:String{
+        switch self {
+        case .SPORTS:
+            return "SPORTS"
+        case .SCIENCE:
+            return "SCIENCE"
+    
+        }
+    }
 }
